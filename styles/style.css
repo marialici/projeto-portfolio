@@ -89,6 +89,11 @@ main {
   text-align: center;
 }
 
+#ficha p {
+  text-align: justify;
+  font-size: 1em;
+}
+
 #social {
   display: flex;
   justify-content: center;
@@ -104,11 +109,6 @@ main {
 }
 #social a:hover {
   color: var(--destaque-inverso);
-}
-
-#ficha p {
-  text-align: justify;
-  font-size: 1em;
 }
 
 #detalhes {
@@ -142,6 +142,11 @@ article h2 {
 
 #skill-container .nome {
   font-weight: bold;
+  color: var(--texto);
+}
+
+#skill-container .nome::before {
+  content: "| ";
   color: var(--texto);
 }
 
@@ -253,6 +258,38 @@ footer a:hover {
 }
 
 @media screen and (min-width: 768px) {
+  header {
+    padding: 13px;
+  }
+
+  #menu ul a {
+    align-items: center;
+    padding: 20px 19px 15px 19px;
+  }
+
+  #menu ul a span {
+    font-size: 1.5em;
+  }
+
+  #menu li a#home {
+    display: none;
+  }
+
+  main {
+    grid-template-columns: auto 300px 1fr auto;
+  }
+
+  #ficha {
+    grid-column: 2 / 3;
+    height: fit-content;
+    position: sticky;
+    top: 76px;
+  }
+
+  #detalhes {
+    grid-column: 3 / 4;
+  }
+
   #skill-container {
     grid-template-columns: 1fr 1fr;
     justify-content: space-between;
