@@ -15,11 +15,23 @@
   --fundo-card: #ffffff;
 }
 
+body.escuro {
+  --fundo-principal: #222222;
+  --texto: #e0e0e0;
+  --texto-inverso: #333333;
+  --destaque: #ff5522;
+  --destaque-inverso: #a73917;
+  --fundo-card: #444444;
+}
+
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   line-height: 1.5em;
   background-color: var(--fundo-principal);
   color: var(--texto);
+  transition:
+    background-color 0.5s,
+    color 0.5s;
 }
 
 header {
@@ -89,11 +101,6 @@ main {
   text-align: center;
 }
 
-#ficha p {
-  text-align: justify;
-  font-size: 1em;
-}
-
 #social {
   display: flex;
   justify-content: center;
@@ -130,8 +137,8 @@ article h2 {
 #skill-container {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 25px;
-  padding-bottom: 10px;
+  gap: 20px;
+  padding-bottom: 8px;
 }
 
 #skill-container .info {
@@ -173,7 +180,7 @@ article h2 {
   display: flex;
   flex-direction: column-reverse;
   gap: 20px;
-  padding-bottom: 10px;
+  padding-bottom: 8px;
 }
 
 #formacao-container .curso {
@@ -192,13 +199,15 @@ article h2 {
   cursor: pointer;
 }
 
-#formacao-container .periodo {
+#formacao-container .periodo,
+.projeto-info .periodo {
   font-size: 0.8em;
   font-weight: bold;
   color: var(--texto);
 }
 
-#formacao-container .instituicao {
+#formacao-container .instituicao,
+.projeto-info .titulo {
   color: var(--destaque-inverso);
   font-size: 1.1em;
   margin-bottom: 4px;
@@ -208,6 +217,7 @@ article h2 {
   display: flex;
   flex-direction: column-reverse;
   gap: 20px;
+  padding-bottom: 8px;
 }
 
 #projeto-container .projeto {
@@ -236,7 +246,18 @@ article h2 {
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
+  overflow: hidden;
   border-radius: 8px;
+}
+
+.projeto-info .descricao {
+  margin-top: 8px;
+  text-align: justify;
+}
+
+.descricao summary {
+  text-decoration: underline;
+  color: var(--texto);
 }
 
 footer {
@@ -258,15 +279,6 @@ footer a:hover {
 }
 
 @media screen and (min-width: 768px) {
-  header {
-    padding: 13px;
-  }
-
-  #menu ul a {
-    align-items: center;
-    padding: 20px 19px 15px 19px;
-  }
-
   #menu ul a span {
     font-size: 1.5em;
   }
@@ -276,14 +288,14 @@ footer a:hover {
   }
 
   main {
-    grid-template-columns: auto 300px 1fr auto;
+    grid-template-columns: auto 400px 1fr auto;
   }
 
   #ficha {
     grid-column: 2 / 3;
     height: fit-content;
     position: sticky;
-    top: 76px;
+    top: 70px;
   }
 
   #detalhes {
